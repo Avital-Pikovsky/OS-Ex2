@@ -1,6 +1,6 @@
 # Operating Systems - Assignment 2:
 
-## Question 1 (IPC) ​
+## Question 1 (IPC):
 Implement a ping-pong game involving two processes (the parent and son) that are
 communicating through ​ pipe()​ . The processes send each other an integer, each time increasing
 an integer by one, and when the number reaches a certain number (​ five​ in our case), both
@@ -8,7 +8,7 @@ processes are terminating. The program gives an example of two processes communi
 through the pipe to transfer data. Processes require additional synchronization determining the
 order of readi/write that should be implemented through signals in this case.
 
-## Detailed description​ :
+Detailed description​ :
 The process creates a pipe and starts a child process. The child process sends a value 0
 
 through the pipe and signals to the parent by using the ​ SIGUSR1​ signal (see kill -l). To get a
@@ -49,8 +49,8 @@ Submission​ :
 Create a folder named IPC for the sources and makefile. You can add a readme file with any
 explanations if required.
 
-## Question 2​:
-The dining philosophers problem
+## Question 2​ (The dining philosophers problem):
+
 In this question you will investigate a few process synchronization issues using the “​ dining
 philosophers problem​ ”. You are encouraged to look for references in the web, including for
 solution suggestions. Links for relevant references are provided in the text.
