@@ -54,6 +54,7 @@ explanations if required.
 In this question you will investigate a few process synchronization issues using the “​ dining
 philosophers problem​ ”. You are encouraged to look for references in the web, including for
 solution suggestions. Links for relevant references are provided in the text.
+
 2.1​ ​ Deadlock
 
 Consider the program ​ dining_philosophers.c
