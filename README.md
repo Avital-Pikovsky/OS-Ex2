@@ -58,6 +58,7 @@ solution suggestions. Links for relevant references are provided in the text.
 2.1​ ​ Deadlock
 
 Consider the program ​ dining_philosophers.c
+
 2.1.1​ Edit the program dining_philosophers.c such that it will get into a ​ deadlock​ condition with a
 high probability.
 
@@ -65,6 +66,7 @@ high probability.
 condition. 
 
 2.2 Starvation
+
 2.2.1​ Edit the program dining_philosophers.c such that it will get into a ​ starvation​ condition with
 a high probability.
 

@@ -1,2 +1,2 @@
 void handler(int sig);
-void foo();
+void readAndWrite();

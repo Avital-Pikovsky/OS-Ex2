@@ -7,30 +7,33 @@
 #include <signal.h>
 #include "ping_pong.h"
 
+enum boolean {True = 1, False = 0};
+
+
 static int n = 0;
-static int b = 1;  //boolean for know when n==5
-static int p;      //procces id
+static int b = True;  //boolean for know when n==5
+static int process;      //procces id
 static int fd1[2]; //pipe
 
 //signal handler stop when n==5
 void handler(int sig)
 {
     if (n > 5)
-        b = 0;
+        b = False;
 }
 
-// function read & write
-void foo()
+//Read & write function
+void readAndWrite()
 {
     static int x = 0;
-    if (p < 0)
+    if (process < 0)
     {
         fprintf(stderr, "fork Failed");
-        exit(1);
+        exit(True);
     }
 
     // child process
-    else if (p == 0)
+    else if (process == 0)
     {
         write(fd1[1], &x, sizeof(x)); // Write a val and close writing end
         kill(getppid(), SIGUSR1);     //send a SIGUSR1 to parent
@@ -41,7 +44,7 @@ void foo()
         if (x >= 5) //Child and Parent is going to be terminated
         {
             printf("Child is going to be terminated\n");
-            printf("Parent is going to be terminated\n");//Already terminated
+            printf("Parent is going to be terminated\n"); //Already terminated
         }
     }
 
@@ -56,7 +59,7 @@ void foo()
         kill(0, SIGUSR1);             //send a SIGUSR1 to son
         if (x >= 5)
         {
-            b = 0;
+            b = False;
            // printf("Parent is going to be terminated\n");
         }
     }
@@ -69,14 +72,14 @@ int main()
     if (pipe(fd1) == -1)
     {
         fprintf(stderr, "Pipe Failed");
-        return 1;
+        return True;
     }
 
-    p = fork();
-    // incarse n and send 5 time with foo function
-    while (b == 1)
+    process = fork();
+    // incarse n and send 5 time with readAndWrite function
+    while (b == True)
     {
-        foo();
+        readAndWrite();
     }
 
     return 0;
