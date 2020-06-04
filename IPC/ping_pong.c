@@ -12,7 +12,7 @@ enum boolean {True = 1, False = 0};
 
 static int n = 0;
 static int b = True;  //boolean for know when n==5
-static int process;      //procces id
+static int process;
 static int fd1[2]; //pipe
 
 //signal handler stop when n==5
