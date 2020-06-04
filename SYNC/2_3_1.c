@@ -22,8 +22,7 @@ sem_t S[N];
 void takeRigthFork(int phnum) 
 { 
 
-	if (state[phnum] == PICKLEFT && state[LEFT] != PICKLEFT &&  state[LEFT] != EATING
-		&& state[RIGHT] != EATING && state[RIGHT] != PICKLEFT && state[(phnum+5%N)] == HUNGRY) { 
+	if (state[phnum] == PICKLEFT && state[LEFT] != PICKLEFT && state[RIGHT] != PICKLEFT && state[(phnum+5%N)] == HUNGRY) { 
 		// state that eating 
 
 		state[phnum] = EATING; 
@@ -45,7 +44,6 @@ void takeRigthFork(int phnum)
 
 	}
 	else{
-        printf("Philosopher %d Cant Eat\n", phnum + 1); 
 		state[phnum] = HUNGRY; 
         sleep(2);
 		sem_post(&S[phnum]);
